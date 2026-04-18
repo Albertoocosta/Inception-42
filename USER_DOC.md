@@ -33,3 +33,17 @@ A core feature of this containerized architecture is that your data is safe even
 3. Open your terminal at the root of the project and stop the infrastructure:
    ```bash
    make down
+4. **Start the infrastructure again:**
+    Bash
+
+    make
+
+5. **Refresh your browser.** You will see that your test post is still published and completely intact. This proves that both the MariaDB database and the WordPress core files are safely persisted in the host machine's volumes (/home/cda-fons/data/).
+
+## 4. Quick Service Commands
+
+If you need to control the state of the website, use the following commands at the root of the project:
+
+    make - Turns on the website and database.
+
+    make down - Turns off the website, but safely keeps all your data.

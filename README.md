@@ -46,3 +46,42 @@ To ensure data is not lost when containers are recreated, two named volumes are 
 - Hostname resolution configured. Add the following line to your `/etc/hosts` file:
   ```text
   127.0.0.1    cda-fons.42.fr
+
+A .env file created inside the srcs directory with your secure credentials.
+
+Makefile Commands
+
+A Makefile is provided at the root of the repository to easily manage the infrastructure:
+
+    Build and start the infrastructure:
+    Bash
+
+    make
+    # or
+    make all
+
+    Stop the containers (without deleting data):
+    Bash
+
+    make down
+
+    Stop and clean containers, networks, and dangling images:
+    Bash
+
+    make clean
+
+    Deep clean (The ultimate reset):
+    Stops containers, removes images, networks, and physically deletes all data from the host volumes (/home/login/data/). Perfect for starting a fresh evaluation.
+    Bash
+
+    make fclean
+
+    Rebuild from scratch:
+    Bash
+
+    make re
+
+🌐 Accessing the Site
+
+Once the containers are up and running, you can access the WordPress site at:
+https://cda-fons.42.fr
