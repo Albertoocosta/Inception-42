@@ -39,6 +39,17 @@ To ensure data is not lost when containers are recreated, two named volumes are 
 
 ---
 
+## 🤖 AI Usage Disclosure
+
+In accordance with the project guidelines, I disclose that Artificial Intelligence (LLM) was used during the development of this project strictly as a learning assistant and documentation tool. 
+
+Specifically, AI was utilized to:
+- **Elucidate Concepts:** Break down and explain complex System Administration and Docker mechanics (e.g., race conditions between containers, volume permission handling, and internal network isolation).
+- **Documentation:** Assist in structuring, formatting, and refining the English text for the project's technical documentation (`README.md`, `USER_DOC.md`, and `DEV_DOC.md`).
+
+*Note: All code, configurations, debugging, and testing were actively performed, typed, and validated manually to ensure complete mastery and understanding of the infrastructure.*
+
+
 ## 🚀 Installation & Usage
 
 ### Prerequisites
