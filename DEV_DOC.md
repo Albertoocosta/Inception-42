@@ -33,7 +33,7 @@ The repository is structured to strictly separate the `Makefile` from the Docker
             └── Dockerfile
 ```
 
-🐳 Architecture Details
+## 🐳 Architecture Details
 1. The Network
 
 All containers communicate through a custom user-defined bridge network called inception. This allows containers to resolve each other by their service names (e.g., NGINX forwards PHP requests to wordpress:9000, and WordPress connects to the database at mariadb:3306). The default host network is strictly ignored.
@@ -41,7 +41,7 @@ All containers communicate through a custom user-defined bridge network called i
 
 We use bind mounts mapped to /home/cda-fons/data/ on the host machine. The Makefile ensures these directories are created with sudo privileges before docker-compose runs, preventing permission errors.
 ⚙️ Container Deep Dive
-NGINX (Reverse Proxy)
+### NGINX (Reverse Proxy)
 
     Base Image: debian:bookworm
 
@@ -49,7 +49,7 @@ NGINX (Reverse Proxy)
 
     Routing: The nginx.conf file is configured to intercept .php requests and forward them via FastCGI to the WordPress container on port 9000. It strictly enforces TLSv1.2 and TLSv1.3.
 
-MariaDB (Database)
+### MariaDB (Database)
 
     Base Image: debian:bookworm
 
@@ -57,7 +57,7 @@ MariaDB (Database)
 
     Security: The script creates the database and users dynamically using environment variables from the .env file. It modifies the root password and flushes privileges. The service is kept alive in the foreground using exec mysqld_safe.
 
-WordPress + PHP-FPM (Application Logic)
+### WordPress + PHP-FPM (Application Logic)
 
     Base Image: debian:bookworm
 
@@ -67,7 +67,7 @@ WordPress + PHP-FPM (Application Logic)
 
     Execution: After setup, the script hands over control to php-fpm8.2 -F, keeping the PHP processor running in the foreground to listen for NGINX requests.
 
-🐛 Troubleshooting & Debugging
+## 🐛 Troubleshooting & Debugging
 
 If you are modifying the infrastructure and need to debug, use these commands:
 
